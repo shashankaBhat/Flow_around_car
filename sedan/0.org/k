@@ -1,0 +1,58 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      k;        //k is the Turbulent Kinetic Energy
+			  // for each new case. k=(3/2)*((U/I)^2)  U=Freestream fluid velocity
+				    // I is Turbulence Intensity and can be estimated 
+				    // I=0.16*Re       Re=Pipe Diameter Reynolds #
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0.0503;            //// was 0.00325
+
+boundaryField
+{
+        sedan
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+max x
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+min x
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+max y
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+min y
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+max z
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+min z
+    {
+        type            zeroGradient;		// think this is correct type BC
+    }
+}
+
+
+// ************************************************************************* //
